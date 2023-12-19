@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-GLhlTQ8iUN+SLZGGEP1DWF7LgiJhCF6S+KdX3VvPpLXR5Mq0Urgbv9UJow1UmhL2" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Coffee Store</title>
+</head>
+
+<body>
+    <h1 class="title text-center"><i class="fa-solid fa-star"></i>Don't forget to leave us your opinion<i class="fa-solid fa-star"></i></h1>
+
+    <div class="content">We highly value your feedback! Kindly take a moment to rate your experience and provide us with your valuable feedback</div>
+
+    <div>
+        <div class="title-rate">
+            <div class="title">Rate your experience <i class="fa-solid fa-mug-hot"></i></div>
+        </div>
+    </div>
+
+    <form name="sentMessage" id="contactForm" novalidate="novalidate">
+        <div class="control-group">
+            <input type="text" class="name-of-usuario" id="name" placeholder="Your Name" required="required"
+                data-validation-required-message="Please enter your name" />
+            <p class="help-block text-danger"></p>
+        </div>
+
+        <!-- Agrega un textarea para el comentario -->
+        <textarea id="comment" cols="30" rows="6" placeholder="Tell us about your experience!"></textarea>
+
+        <input type="hidden" id="rating" />
+
+        <div class="rate-box">
+            <input type="radio" name="star" id="star0">
+            <label class="star" for="star0"></label>
+            <input type="radio" name="star" id="star1">
+            <label class="star" for="star1"></label>
+            <input type="radio" name="star" id="star2">
+            <label class="star" for="star2"></label>
+            <input type="radio" name="star" id="star3">
+            <label class="star" for="star3"></label>
+            <input type="radio" name="star" id="star4">
+            <label class="star" for="star4"></label>
+        </div>
+
+        <div class="submit-btn" onclick="sendFeedbackFromButton()">Send</div>
+
+    </form>
+
+    <div>
+        <div class="contact-us">
+            <div class="title">Feel free to contact us <i class="fa-solid fa-comment"></i></div>
+        </div>
+
+        <div class="information">
+            <div class="row">
+                <div class="icon">
+                    <i class="fas fa-map-marker-alt fa-3x"></i>
+                </div>
+                <div class="text-content">
+                    <h2>Address</h2>
+                    <p class="info-text">Calle falsa 123, <br> Springfield</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="icon">
+                    <i class="fas fa-phone fa-3x"></i>
+                </div>
+                <div class="text-content">
+                    <h2>Phone</h2>
+                    <p class="info-text">+012 <br> 3456 789</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="icon">
+                    <i class="fas fa-envelope fa-3x"></i>
+                </div>
+                <div class="text-content">
+                    <h2>Email</h2>
+                    <p class="info-text">coffemasters<br>@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script type="text/javascript">
+       
+        function clearForm() {
+            document.getElementById("name").value = "";
+
+            // Desmarca todas las estrellas
+            var starRadios = document.getElementsByName("star");
+            for (var i = 0; i < starRadios.length; i++) {
+                starRadios[i].checked = false;
+            }
+
+            // Establece la calificación en 0
+            document.getElementById("rating").value = 0;
+
+            document.getElementById("comment").value = "";
+        }
+
+        function sendFeedbackFromButton() {
+    clearForm();
+    // Llama a la función definida en Android para indicar que se presionó el botón
+    Android.buttonPressed();
+}
+    </script>
+</body>
+
+</html>
+
