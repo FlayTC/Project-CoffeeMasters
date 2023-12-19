@@ -1,5 +1,6 @@
 package app.itmaster.mobile.coffeemasters
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -28,7 +29,7 @@ import app.itmaster.mobile.coffeemasters.ui.theme.Alternative2
 data class NavPage(var route: String, var title: String, var icon: ImageVector)
 
 object Pages {
-    val menuPage = NavPage("menu", "Menu", Icons.Outlined.Menu)
+    private val menuPage = NavPage("menu", "Menu", Icons.Outlined.Menu)
     val all = listOf(
         menuPage,
         NavPage("offers", "Offers", Icons.Outlined.Star),
@@ -54,7 +55,7 @@ fun NavBar(
                 page.route == selectedRoute,
                 modifier = Modifier
                     .clickable {
-                        println("Clickeaste en ${page.route}")
+                        println("You click in ${page.route}")
                         onRouteChange(page.route)
                     }
             )
@@ -66,7 +67,7 @@ fun NavBar(
 @Composable
 fun NavBarItem(
     page: NavPage, selected: Boolean = false,
-    modifier: Modifier = Modifier
+    @SuppressLint("ModifierParameter") modifier: Modifier = Modifier
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
